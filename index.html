@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>攝護腺疾病｜泌尿醫學專業網站</title>
+  <title>泌尿醫學專業網站</title>
   <style>
     * {
       margin: 0;
@@ -24,90 +24,78 @@
       background-color: #1a3a5c;
       color: white;
       text-align: center;
-      padding: 36px 20px 28px;
+      padding: 48px 20px 36px;
     }
-    header a.site-title {
-      display: inline-block;
-      font-size: 1rem;
+    header h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      margin-bottom: 12px;
+    }
+    header h2 {
+      font-size: 1.1rem;
       font-weight: 400;
       letter-spacing: 2px;
       color: #a8c8e8;
-      text-decoration: none;
-      margin-bottom: 10px;
-    }
-    header a.site-title:hover {
-      color: white;
-    }
-    header h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: 4px;
     }
     .divider {
       width: 100%;
       height: 4px;
       background: linear-gradient(90deg, #1a3a5c, #4a90d9, #1a3a5c);
     }
-    nav {
-      width: 100%;
-      background-color: #ffffff;
-      border-bottom: 1px solid #c8dff0;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0;
-    }
-    .nav-link {
-      display: inline-block;
-      padding: 14px 20px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      color: #1a3a5c;
-      text-decoration: none;
-      border-bottom: 3px solid transparent;
-      transition: all 0.2s ease;
-    }
-    .nav-link:hover {
-      color: #4a90d9;
-      border-bottom-color: #4a90d9;
-    }
-    .nav-link.active {
-      color: #4a90d9;
-      border-bottom-color: #4a90d9;
-    }
-    @media (max-width: 600px) {
-      .nav-link {
-        padding: 10px 12px;
-        font-size: 0.82rem;
-      }
-    }
     main {
       width: 100%;
-      max-width: 860px;
+      max-width: 900px;
       padding: 60px 20px;
       flex: 1;
     }
-    .page-intro {
+    .index-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    /* 最新消息置中：佔第二格，左右留空 */
+    .card-empty {
+      visibility: hidden;
+      pointer-events: none;
+    }
+    /* 手機版：直線排列，空白格隱藏 */
+    @media (max-width: 600px) {
+      .index-grid {
+        grid-template-columns: 1fr;
+      }
+      .card-empty {
+        display: none;
+      }
+    }
+    .card {
+      background-color: #ffffff;
+      border: 1px solid #c8dff0;
+      border-radius: 8px;
+      padding: 40px 20px;
       text-align: center;
-      padding: 60px 20px;
-      color: #6a8caa;
-    }
-    .page-intro .icon {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-    .page-intro h2 {
-      font-size: 1.3rem;
-      font-weight: 600;
-      letter-spacing: 3px;
-      margin-bottom: 12px;
+      text-decoration: none;
       color: #1a3a5c;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 6px rgba(26,58,92,0.08);
     }
-    .page-intro p {
-      font-size: 0.95rem;
-      color: #8aaac4;
-      letter-spacing: 1px;
+    .card:hover {
+      background-color: #1a3a5c;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(26,58,92,0.2);
+    }
+    /* 最新消息特別標色 */
+    .card-news {
+      background-color: #eaf4ff;
+      border-color: #4a90d9;
+    }
+    .card-news:hover {
+      background-color: #1a3a5c;
+      color: white;
     }
     footer {
       width: 100%;
@@ -121,23 +109,26 @@
 </head>
 <body>
   <header>
-    <a class="site-title" href="../index.html">← 泌尿醫學專業網站</a>
-    <h1>攝護腺疾病</h1>
+    <h1>泌尿醫學專業網站</h1>
+    <h2>新光醫院　何承勳 主任</h2>
   </header>
   <div class="divider"></div>
-  <nav>
-      <a class="nav-link active" href="../prostate/index.html">攝護腺疾病</a>
-      <a class="nav-link" href="../tumor/index.html">泌尿道腫瘤</a>
-      <a class="nav-link" href="../stone/index.html">泌尿道結石</a>
-      <a class="nav-link" href="../hernia/index.html">疝氣</a>
-      <a class="nav-link" href="../others/index.html">其他泌尿醫學</a>
-      <a class="nav-link" href="../doctor/index.html">醫師介紹</a>
-  </nav>
   <main>
-    <div class="page-intro">
-      <div class="icon">🔬</div>
-      <h2>攝護腺疾病</h2>
-      <p>內容建置中，敬請期待</p>
+    <div class="index-grid">
+      <!-- 第一列：左空白、最新消息、右空白 -->
+      <div class="card-empty"></div>
+      <a class="card card-news" href="news/index.html">最新消息</a>
+      <div class="card-empty"></div>
+
+      <!-- 第二列 -->
+      <a class="card" href="prostate/index.html">攝護腺疾病</a>
+      <a class="card" href="tumor/index.html">泌尿道腫瘤</a>
+      <a class="card" href="stone/index.html">泌尿道結石</a>
+
+      <!-- 第三列 -->
+      <a class="card" href="hernia/index.html">疝氣</a>
+      <a class="card" href="others/index.html">其他泌尿醫學</a>
+      <a class="card" href="doctor/index.html">醫師介紹</a>
     </div>
   </main>
   <footer>
